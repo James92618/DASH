@@ -134,7 +134,6 @@ sai-headers: p4 | SAI/SAI
 	@echo "Generate SAI library headers and implementation..."
 	mkdir -p SAI/lib && chmod -R o+w SAI && \
 	$(DOCKER_RUN) \
-		$(DOCKER_FLAGS) \
 		--name build_sai-$(USER) \
 		-w /SAI $(DOCKER_SAITHRIFT_BLDR_IMG) \
 	    ./generate_dash_api.sh
@@ -157,7 +156,6 @@ sai-meta:
 libsai:
 	@echo "build libsai.so..."
 	$(DOCKER_RUN) \
-		$(DOCKER_FLAGS) \
 		-w /SAI/lib \
 		--name build_libsai-$(USER) \
 		$(DOCKER_BMV2_BLDR_IMG) \
